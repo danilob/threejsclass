@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 
-const eulerToRad = (y) => Math.PI * y/180
+const eulerToRad = (angle) => Math.PI * angle/180
 
 // Scene
 const scene = new THREE.Scene()
@@ -9,6 +9,9 @@ const scene = new THREE.Scene()
 const geometry = new THREE.BoxGeometry(1,1,1)
 const material = new THREE.MeshBasicMaterial({color: 0xff0000})
 const mesh = new THREE.Mesh(geometry, material)
+mesh.rotation.reorder('YXZ')
+mesh.rotation.x = eulerToRad(90)
+mesh.rotation.y = eulerToRad(45)
 //mesh.scale.set(2,4,1)
 //mesh.position.set(1,2,2);
 //mesh.rotation.order('XYZ')
